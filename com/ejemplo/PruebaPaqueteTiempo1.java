@@ -10,7 +10,7 @@ public class PruebaPaqueteTiempo1 {
       System.out.println("La hora estandar inicial es: " + tiempo.toString());
       System.out.println();
 
-      // 3. Establecer una nueva hora y mostrarla
+      // 3. Establecer una nueva hora y mostrarla ...
       tiempo.establecerTiempo(23, 29, 33);
       System.out.println("La hora universal después de establecerTiempo es: " + tiempo.aStringUniversal());
       System.out.println("La hora estandar después de establecerTiempo es: " + tiempo.toString());

@@ -1,48 +1,31 @@
-// javac -d c:/temporal/proyecto Tiempo.java
+// Se importa la clase Tiempo1 desde el paquete com.ejemplo
+import com.ejemplo.Tiempo1;
 
-// PruebaPaqueteTiempo1.java
-// Uso de un objeto Tiempo1 en una aplicaciÛn.
-import mx.unam.Tiempo1; // importa la clase Tiempo1
+public class PruebaPaqueteTiempo1 {
+   public static void main(String[] args) {
+      // 1. Crear un objeto Tiempo1
+      Tiempo1 tiempo = new Tiempo1();
 
-public class PruebaPaqueteTiempo1 
-{
-   public static void main( String[] args )
-   {
-      // crea e inicializa un objeto Tiempo1
-      Tiempo1 tiempo = new Tiempo1(); // invoca al constructor de Tiempo1
+      // 2. Mostrar la hora inicial (por defecto ser√° 00:00:00)
+      System.out.println("La hora universal inicial es: " + tiempo.aStringUniversal());
+      System.out.println("La hora estandar inicial es: " + tiempo.toString());
+      System.out.println();
 
-      // imprime representaciones String de la hora
-      System.out.print( "La hora universal inicial es: " );
-      System.out.println( tiempo.aStringUniversal() );
-      System.out.print( "La hora estandar inicial es: " );
-      System.out.println( tiempo.toString() );
-      System.out.println(); // imprime una lÌnea en blanco
+      // 3. Establecer una nueva hora y mostrarla
+      tiempo.establecerTiempo(23, 29, 33);
+      System.out.println("La hora universal despu√©s de establecerTiempo es: " + tiempo.aStringUniversal());
+      System.out.println("La hora estandar despu√©s de establecerTiempo es: " + tiempo.toString());
+      System.out.println();
 
-      // cambia la hora e imprime la hora actualizada
-      tiempo.establecerTiempo( 13, 27, 6 ); 
-      System.out.print( "La hora universal despues de establecerTiempo es: " );
-      System.out.println( tiempo.aStringUniversal() );
-      System.out.print( "La hora estandar despues de establecerTiempo es: " );
-      System.out.println( tiempo.toString() );
-      System.out.println(); // imprime una lÌnea en blanco
+      // 4. Intentar establecer una hora inv√°lida para probar la excepci√≥n
+      try {
+         tiempo.establecerTiempo(99, 99, 99);
+      } catch (IllegalArgumentException e) {
+         System.out.printf("Excepcion capturada: %s\n\n", e.getMessage());
+      }
 
-      // intenta establecer la hora con valores inv·lidos
-      try
-      {
-         tiempo.establecerTiempo( 99, 99, 99 ); // todos los valores fuera de rango
-      }  // fin de try
-      catch (IllegalArgumentException e )
-      {
-         System.out.printf( "Excepcion: %s\n\n", e.getMessage() );
-      }  // fin de catch
-
-      // muestra la hora despuÈs de tratar de establecer valores inv·lidos
-      System.out.println( "Despues de intentar ajustes invalidos:" );
-      System.out.print( "Hora universal: " );
-      System.out.println( tiempo.aStringUniversal() );
-      System.out.print( "Hora estandar: " );
-      System.out.println( tiempo.toString() );
-   } // fin de main
-} // fin de la clase PruebaPaqueteTiempo1
-
-
+      // 5. Mostrar la hora final para confirmar que no cambi√≥
+      System.out.println("Despu√©s de intentar el ajuste inv√°lido:");
+      System.out.println("Hora universal final: " + tiempo.aStringUniversal());
+   }
+}

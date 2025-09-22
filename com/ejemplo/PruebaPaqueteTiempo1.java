@@ -1,5 +1,4 @@
-// Se importa la clase Tiempo1 desde el paquete com.ejemplo
-import com.ejemplo.Tiempo1;
+package com.ejemplo;// Se importa la clase Tiempo1 desde el paquete com.ejemplo
 
 public class PruebaPaqueteTiempo1 {
    public static void main(String[] args) {
